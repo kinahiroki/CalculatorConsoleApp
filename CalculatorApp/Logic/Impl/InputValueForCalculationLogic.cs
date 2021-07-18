@@ -76,7 +76,7 @@ namespace CalculatorApp.Logic
         public bool IsValidFormula(string chackTargetValue)
         {
             // TODO 必要かどうか検討
-            throw new NotImplementedException();
+            return false;
         }
     }
 }
