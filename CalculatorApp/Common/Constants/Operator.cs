@@ -1,4 +1,6 @@
-﻿namespace CalculatorApp.Common.Constants
+﻿using System.Collections.Generic;
+
+namespace CalculatorApp.Common.Constants
 {
     /// <summary>
     /// 演算子クラス
@@ -24,29 +26,14 @@
         /// <remarks>定数_演算子_割り算</remarks>
         public static readonly string OPERATOR_DIVISION = "/";
 
-        /// <summary>
-        /// 演算子の列挙子
-        /// </summary>
-        /// <remarks>
-        /// 演算子の列挙子
-        /// </remarks>
-        public enum OperatorEnum
+        /// <summary>定数_演算子リスト</summary>
+        /// <remarks>定数_演算子リスト</remarks>
+        public static readonly IEnumerable<string> OPERATOR_LIST = new List<string>()
         {
-            /// <summary>列挙子_演算子_足し算</summary>
-            /// <remarks>列挙子_演算子_足し算</remarks>
-            ADDTION = 1,
-
-            /// <summary>列挙子_演算子_引き算</summary>
-            /// <remarks>列挙子_演算子_引き算</remarks>
-            SUBTRACTION = 2,
-
-            /// <summary>列挙子_演算子_掛け算</summary>
-            /// <remarks>列挙子_演算子_掛け算</remarks>
-            MULTIPLICATION = 3,
-
-            /// <summary>列挙子_演算子_割り算</summary>
-            /// <remarks>列挙子_演算子_割り算</remarks>
-            DIVISION = 4
-        }
+            OPERATOR_ADDTION,
+            OPERATOR_SUBTRACTION,
+            OPERATOR_MULTIPLICATION,
+            OPERATOR_DIVISION,
+        };
     }
 }

@@ -37,8 +37,6 @@ namespace CalculatorApp.UseCase
         /// </remarks>
         public void PerformCalculation()
         {
-            Console.WriteLine("計算アプリ 起動");
-
             // 数値の入力受付
             Console.WriteLine("1つ目の数を入力してください。");
             string validInputNumber1;
@@ -55,8 +53,6 @@ namespace CalculatorApp.UseCase
                 validInputNumber2 = Console.ReadLine();
 
             } while (!_inputValueCheckForCalculationLogic.IsValidInputValueNumberForCalculation(validInputNumber2));
-
-            Console.WriteLine("計算アプリ 終了");
         }
     }
 }

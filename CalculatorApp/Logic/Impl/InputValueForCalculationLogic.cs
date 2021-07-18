@@ -48,6 +48,20 @@ namespace CalculatorApp.Logic
         /// <returns>有効な値の場合はtrue、無効な値の場合はfalse</returns>
         public bool IsValidInputValueOperator(string checkTargetValue)
         {
+            if (!CheckUtility.IsNecessarilyInput(checkTargetValue))
+            {
+                // 未入力の場合
+                Console.WriteLine("演算子は必須です。入力してください。");
+                return false;
+            }
+
+            if (!CheckUtility.IsValidOperator(checkTargetValue))
+            {
+                // 未入力の場合
+                Console.WriteLine("無効な演算子です。指定した値のみ入力してください。");
+                return false;
+            }
+
             return true;
         }
     }

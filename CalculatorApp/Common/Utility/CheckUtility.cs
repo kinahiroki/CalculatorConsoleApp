@@ -1,4 +1,5 @@
 ﻿using CalculatorApp.Common.Constants;
+using System.Linq;
 
 namespace CalculatorApp.Common.Utility
 {
@@ -53,6 +54,20 @@ namespace CalculatorApp.Common.Utility
         public static bool IsValidSpecifeidDigitsOrLess(string checkTargetValue, int specifiedDigits)
         {
             return checkTargetValue.Length <= specifiedDigits;
+        }
+
+        /// <summary>
+        /// 演算子チェック
+        /// </summary>
+        /// <remarks>
+        /// チェック対象の値が有効な演算子かどうかを検証する。
+        /// 検証は定数.演算子リストに含まれているかどうかで行う。
+        /// </remarks>
+        /// <param name="checkTargetValue">チェック対象の値</param>
+        /// <returns>桁数以下の場合はtrue、桁数より大きい場合はfalse</returns>
+        public static bool IsValidOperator(string checkTargetValue)
+        {
+            return Operator.OPERATOR_LIST.Where(item => item == checkTargetValue).Any();
         }
     }
 }
