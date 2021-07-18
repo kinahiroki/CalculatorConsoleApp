@@ -3,12 +3,12 @@
 namespace CalculatorApp.Common.Validation
 {
     /// <summary>
-    /// 入力値チェッククラス
+    /// 共通チェッククラス
     /// </summary>
     /// <remarks>
-    /// 入力値チェッククラス
+    /// 共通で使うチェックメソッドを定義する。
     /// </remarks>
-    public class InputValueCheck
+    public class CheckUtility
     {
         /// <summary>
         /// 必須チェック
@@ -53,10 +53,6 @@ namespace CalculatorApp.Common.Validation
         public static bool IsValidSpecifeidDigitsOrLess(string checkTargetValue, int specifiedDigits)
         {
             return checkTargetValue.Length <= specifiedDigits;
-        }
-
-        public static bool IsValidOperator(string checkTargetValue)
-        {
         }
     }
 }
