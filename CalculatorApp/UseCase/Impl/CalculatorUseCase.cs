@@ -37,7 +37,6 @@ namespace CalculatorApp.UseCase
         /// </remarks>
         public void PerformCalculation()
         {
-            // 数値の入力受付
             Console.WriteLine("1つ目の数を入力してください。");
             string validInputNumber1;
             do
@@ -53,6 +52,22 @@ namespace CalculatorApp.UseCase
                 validInputNumber2 = Console.ReadLine();
 
             } while (!_inputValueCheckForCalculationLogic.IsValidInputValueNumberForCalculation(validInputNumber2));
+
+            Console.WriteLine("演算子(+, -, *, /)を入力してください。");
+            string validInputOperator;
+            do
+            {
+                validInputOperator = Console.ReadLine();
+
+            } while (!_inputValueCheckForCalculationLogic.IsValidInputValueOperator(validInputOperator));
+
+            // 入力値から計算式を生成
+            var inputFormula = validInputNumber1 + validInputOperator + validInputNumber2;
+            if (!_inputValueCheckForCalculationLogic.IsValidFormula(inputFormula))
+            {
+                // 不正な式の場合、アプリ終了
+                return;
+            }
         }
     }
 }

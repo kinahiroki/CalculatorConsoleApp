@@ -12,7 +12,7 @@ namespace CalculatorApp.Common.Constants
     {
         /// <summary>定数_演算子_足し算</summary>
         /// <remarks>定数_演算子_足し算</remarks>
-        public static readonly string OPERATOR_ADDTION = "+";
+        public static readonly string OPERATOR_ADDITION = "+";
 
         /// <summary>定数_演算子_引き算</summary>
         /// <remarks>定数_演算子_引き算</remarks>
@@ -30,7 +30,7 @@ namespace CalculatorApp.Common.Constants
         /// <remarks>定数_演算子リスト</remarks>
         public static readonly IEnumerable<string> OPERATOR_LIST = new List<string>()
         {
-            OPERATOR_ADDTION,
+            OPERATOR_ADDITION,
             OPERATOR_SUBTRACTION,
             OPERATOR_MULTIPLICATION,
             OPERATOR_DIVISION,

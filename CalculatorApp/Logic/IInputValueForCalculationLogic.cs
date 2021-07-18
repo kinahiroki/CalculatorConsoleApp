@@ -1,10 +1,10 @@
 ﻿namespace CalculatorApp.Logic
 {
     /// <summary>
-    /// 入力値チェック(計算用)　インターフェース
+    /// 入力値チェック(計算用)ロジック　インターフェース
     /// </summary>
     /// <remarks>
-    /// 入力値チェック(計算用)　インターフェース
+    /// 入力値チェック(計算用)ロジック　インターフェース
     /// </remarks>
     public interface IInputValueForCalculationLogic
     {
@@ -27,5 +27,15 @@
         /// <param name="checkTargetValue">チェック対象の値</param>
         /// <returns>有効な値の場合はtrue、無効な値の場合はfalse</returns>
         bool IsValidInputValueOperator(string checkTargetValue);
+
+        /// <summary>
+        /// 入力した値が有効な式かどうか検証
+        /// </summary>
+        /// <remarks>
+        /// 入力した値が有効な式かどうか検証
+        /// </remarks>
+        /// <param name="chackTargetValue">チェック対象の値</param>
+        /// <returns>有効な値の場合はtrue、無効な値の場合はfalse</returns>
+        bool IsValidFormula(string chackTargetValue);
     }
 }

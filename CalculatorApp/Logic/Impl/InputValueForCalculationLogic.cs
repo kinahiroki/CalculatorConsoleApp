@@ -4,10 +4,10 @@ using System;
 namespace CalculatorApp.Logic
 {
     /// <summary>
-    /// 入力値チェック(計算用)　実装クラス
+    /// 入力値チェック(計算用)ロジック　実装クラス
     /// </summary>
     /// <remarks>
-    /// 入力値チェック(計算用)　実装クラス
+    /// 入力値チェック(計算用)ロジック　実装クラス
     /// </remarks>
     public class InputValueForCalculationLogic : IInputValueForCalculationLogic
     {
@@ -63,6 +63,19 @@ namespace CalculatorApp.Logic
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// 入力した値が有効な式かどうか検証
+        /// </summary>
+        /// <remarks>
+        /// 入力した値が有効な式かどうか検証
+        /// </remarks>
+        /// <param name="chackTargetValue">チェック対象の値</param>
+        /// <returns>有効な値の場合はtrue、無効な値の場合はfalse</returns>
+        public bool IsValidFormula(string chackTargetValue)
+        {
+            throw new NotImplementedException();
         }
     }
 }
