@@ -14,7 +14,7 @@
         /// <remarks>
         /// 2つの数値の和を求める。
         /// </remarks>
-        /// <returns>2つの数値の和</returns>
+        /// <returns>数値の和</returns>
         string Add();
     }
 }

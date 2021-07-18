@@ -50,6 +50,7 @@ namespace CalculatorApp
             // Logic
             services.AddTransient<IInputValueForCalculationLogic, InputValueForCalculationLogic>();
             services.AddTransient<IAdditionLogic, AdditionLogic>();
+            services.AddTransient<ISubtractionLogic, SubtractionLogic>();
         }
     }
 }

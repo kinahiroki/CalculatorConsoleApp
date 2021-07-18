@@ -75,6 +75,7 @@ namespace CalculatorApp.Logic
         /// <returns>有効な値の場合はtrue、無効な値の場合はfalse</returns>
         public bool IsValidFormula(string chackTargetValue)
         {
+            // TODO 必要かどうか検討
             throw new NotImplementedException();
         }
     }
