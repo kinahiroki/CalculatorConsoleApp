@@ -1,6 +1,6 @@
 ﻿using CalculatorApp.Common.Constants;
 
-namespace CalculatorApp.Common.Validation
+namespace CalculatorApp.Common.Utility
 {
     /// <summary>
     /// 共通チェッククラス

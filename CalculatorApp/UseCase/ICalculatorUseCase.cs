@@ -6,7 +6,7 @@
     /// <remarks>
     /// 電卓ユースケース　インターフェース
     /// </remarks>
-    interface ICalculatorUseCase
+    public interface ICalculatorUseCase
     {
         /// <summary>
         /// 計算実行

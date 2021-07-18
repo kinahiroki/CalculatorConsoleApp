@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalculatorApp.Logic;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,11 +13,20 @@ namespace CalculatorApp.UseCase
     /// </remarks>
     public class CalculatorUseCase : ICalculatorUseCase
     {
+        /// <summary>入力値チェックロジック</summary>
+        /// <remarks>入力値チェックロジック</remarks>
+        private readonly IInputValueForCalculationLogic _inputValueCheckForCalculationLogic;
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public CalculatorUseCase()
+        /// <remarks>
+        /// DIの実施
+        /// </remarks>
+        /// <param name="inputValueCheckForCalculationLogic">入力値チェックロジック</param>
+        public CalculatorUseCase(IInputValueForCalculationLogic inputValueCheckForCalculationLogic)
         {
+            _inputValueCheckForCalculationLogic = inputValueCheckForCalculationLogic;
         }
 
         /// <summary>
@@ -29,7 +39,22 @@ namespace CalculatorApp.UseCase
         {
             Console.WriteLine("計算アプリ 起動");
 
-            // 入力値チェック
+            // 数値の入力受付
+            Console.WriteLine("1つ目の数を入力してください。");
+            string validInputNumber1;
+            do
+            {
+                validInputNumber1 = Console.ReadLine();
+
+            } while (!_inputValueCheckForCalculationLogic.IsValidInputValueNumberForCalculation(validInputNumber1));
+
+            Console.WriteLine("2つ目の数を入力してください。");
+            string validInputNumber2;
+            do
+            {
+                validInputNumber2 = Console.ReadLine();
+
+            } while (!_inputValueCheckForCalculationLogic.IsValidInputValueNumberForCalculation(validInputNumber2));
 
             Console.WriteLine("計算アプリ 終了");
         }
