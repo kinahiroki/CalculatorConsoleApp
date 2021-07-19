@@ -69,5 +69,27 @@ namespace CalculatorApp.Common.Utility
         {
             return Operator.OPERATOR_LIST.Where(item => item == checkTargetValue).Any();
         }
+
+        /// <summary>
+        /// 処理継続チェック
+        /// </summary>
+        /// <remarks>
+        /// チェック対象の値に処理終了の文字列かどうかを検証する。
+        /// </remarks>
+        /// <param name="checkTargetValue">チェック対象の値</param>
+        /// <returns>処理終了の文字列以外の場合はtrue、処理終了の文字列の場合はfalse</returns>
+        public static bool IsContinue(string checkTargetValue)
+        {
+            // 処理終了キーワード
+            const string PROCESS_END_KEYWORD = "end";
+
+            if (PROCESS_END_KEYWORD == checkTargetValue)
+            {
+                // 処理終了の文字列の場合
+                return false;
+            }
+
+            return true;
+        }
     }
 }

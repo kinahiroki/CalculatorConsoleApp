@@ -26,6 +26,10 @@ namespace CalculatorApp.Common.Constants
         /// <remarks>定数_演算子_割り算</remarks>
         public static readonly string OPERATOR_DIVISION = "/";
 
+        /// <summary>定数_演算子_剰余算</summary>
+        /// <remarks>定数_演算子_剰余算</remarks>
+        public static readonly string OPERATOR_REMAINDER = "%";
+
         /// <summary>定数_演算子リスト</summary>
         /// <remarks>定数_演算子リスト</remarks>
         public static readonly IEnumerable<string> OPERATOR_LIST = new List<string>()
@@ -34,6 +38,7 @@ namespace CalculatorApp.Common.Constants
             OPERATOR_SUBTRACTION,
             OPERATOR_MULTIPLICATION,
             OPERATOR_DIVISION,
+            OPERATOR_REMAINDER,
         };
     }
 }
