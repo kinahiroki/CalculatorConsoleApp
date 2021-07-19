@@ -1,7 +1,4 @@
 ﻿using CalculatorApp.Common.Constants;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CalculatorApp.Logic
 {
@@ -66,17 +63,23 @@ namespace CalculatorApp.Logic
             var calculationResult = string.Empty;
             if (Operator.OPERATOR_ADDITION == validOperator)
             {
+                // 足し算の実施
                 calculationResult = _additionLogic.Add(validNumber1, validNumber2);
             }
             else if (Operator.OPERATOR_SUBTRACTION == validOperator)
             {
+                // 引き算の実施
+                calculationResult = _subtractionLogic.Subtract(validNumber1, validNumber2);
             }
             else if (Operator.OPERATOR_MULTIPLICATION == validOperator)
             {
+                // 掛け算の実施
+                calculationResult = _multiplicationLogic.Multiply(validNumber1, validNumber2);
             }
             else if (Operator.OPERATOR_DIVISION == validOperator)
             {
-
+                // 割り算の実施
+                calculationResult = _divisionLogic.Divide(validNumber1, validNumber2);
             }
 
             return calculationResult;

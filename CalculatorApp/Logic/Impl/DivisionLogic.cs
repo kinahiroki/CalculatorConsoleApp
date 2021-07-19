@@ -8,38 +8,21 @@
     /// </remarks>
     public class DivisionLogic : IDivisionLogic
     {
-        /// <summary>被除数</summary>
-        /// <remarks>被除数</remarks>
-        private decimal Dividend { get; set; }
-
-        /// <summary>除数</summary>
-        /// <remarks>除数</remarks>
-        private decimal Divisor { get; set; }
-
-        /// <summary>
-        /// コンストラクタ
-        /// </summary>
-        /// <remarks>
-        /// 計算で使う有効な数値をプロパティに設定する。
-        /// </remarks>
-        /// <param name="validNumber1">有効な数値1</param>
-        /// <param name="validNumber2">有効な数値2</param>
-        public DivisionLogic(string validNumber1, string validNumber2)
-        {
-            Dividend = decimal.Parse(validNumber1);
-            Divisor = decimal.Parse(validNumber2);
-        }
-
         /// <summary>
         /// 割り算の実施
         /// </summary>
         /// <remarks>
         /// 2つの数値の商を求める。
         /// </remarks>
+        /// <param name="validNumber1">有効な数値1</param>
+        /// <param name="validNumber2">有効な数値2</param>
         /// <returns>数値の商</returns>
-        public string Divide()
+        public string Divide(string validNumber1, string validNumber2)
         {
-            return decimal.Divide(Dividend, Divisor).ToString();
+            var dividend = decimal.Parse(validNumber1);
+            var divisor = decimal.Parse(validNumber2);
+
+            return decimal.Divide(dividend, divisor).ToString();
         }
     }
 }
