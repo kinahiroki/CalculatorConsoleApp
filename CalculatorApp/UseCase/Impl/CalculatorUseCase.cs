@@ -15,7 +15,11 @@ namespace CalculatorApp.UseCase
     {
         /// <summary>入力値チェックロジック</summary>
         /// <remarks>入力値チェックロジック</remarks>
-        private readonly IInputValueForCalculationLogic _inputValueCheckForCalculationLogic;
+        private readonly IInputValueForCalculationLogic _inputValueCheckForCalculationLogic = null;
+
+        /// <summary>演算ロジック</summary>
+        /// <remarks>演算ロジック</remarks>
+        private readonly ICalcuratorLogic _calcuratorLogic = null;
 
         /// <summary>
         /// コンストラクタ
@@ -24,9 +28,13 @@ namespace CalculatorApp.UseCase
         /// DIの実施
         /// </remarks>
         /// <param name="inputValueCheckForCalculationLogic">入力値チェックロジック</param>
-        public CalculatorUseCase(IInputValueForCalculationLogic inputValueCheckForCalculationLogic)
+        /// <param name="calcuratorLogic">演算ロジック</param>
+        public CalculatorUseCase(
+            IInputValueForCalculationLogic inputValueCheckForCalculationLogic,
+            ICalcuratorLogic calcuratorLogic)
         {
             _inputValueCheckForCalculationLogic = inputValueCheckForCalculationLogic;
+            _calcuratorLogic = calcuratorLogic;
         }
 
         /// <summary>
@@ -62,12 +70,19 @@ namespace CalculatorApp.UseCase
             } while (!_inputValueCheckForCalculationLogic.IsValidInputValueOperator(validInputOperator));
 
             // 入力値から計算式を生成
-            var inputFormula = validInputNumber1 + validInputOperator + validInputNumber2;
-            if (!_inputValueCheckForCalculationLogic.IsValidFormula(inputFormula))
-            {
-                // 不正な式の場合、アプリ終了
-                return;
-            }
+            //var inputFormula = validInputNumber1 + validInputOperator + validInputNumber2;
+            //if (!_inputValueCheckForCalculationLogic.IsValidFormula(inputFormula))
+            //{
+            //    // 不正な式の場合、アプリ終了
+            //    return;
+            //}
+
+            // 計算実施
+            var calculationResult = _calcuratorLogic.Calculate(validInputNumber1, validInputNumber2, validInputOperator);
+
+            // 計算結果の出力
+            Console.WriteLine(calculationResult);
+            Console.Read();
         }
     }
 }

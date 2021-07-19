@@ -49,6 +49,7 @@ namespace CalculatorApp
 
             // Logic
             services.AddTransient<IInputValueForCalculationLogic, InputValueForCalculationLogic>();
+            services.AddTransient<ICalcuratorLogic, CalcuratorLogic>();
             services.AddTransient<IAdditionLogic, AdditionLogic>();
             services.AddTransient<ISubtractionLogic, SubtractionLogic>();
             services.AddTransient<IMultiplicationLogic, MultiplicationLogic>();

@@ -13,7 +13,7 @@ namespace CalculatorApp
     {
         /// <summary>電卓ユースケース</summary>
         /// <remarks>電卓ユースケース</remarks>
-        private readonly ICalculatorUseCase _useCase;
+        private readonly ICalculatorUseCase _useCase = null;
 
         /// <summary>
         /// コンストラクタ
