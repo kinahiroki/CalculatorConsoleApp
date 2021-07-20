@@ -70,12 +70,11 @@ namespace CalculatorApp.UseCase
             } while (!_inputValueCheckForCalculationLogic.IsValidInputValueOperator(validInputOperator));
 
             // 入力値から計算式を生成
-            //var inputFormula = validInputNumber1 + validInputOperator + validInputNumber2;
-            //if (!_inputValueCheckForCalculationLogic.IsValidFormula(inputFormula))
-            //{
-            //    // 不正な式の場合、アプリ終了
-            //    return;
-            //}
+            if (!_inputValueCheckForCalculationLogic.IsValidFormula(validInputNumber1, validInputNumber2, validInputOperator))
+            {
+                // 不正な式の場合、アプリ終了
+                return;
+            }
 
             // 計算実施
             var calculationResult = _calcuratorLogic.Calculate(validInputNumber1, validInputNumber2, validInputOperator);

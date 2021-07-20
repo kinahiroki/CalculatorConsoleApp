@@ -35,17 +35,61 @@ namespace CalculatorAppTests.Common.Utility
         /// </summary>
         /// <remarks>
         /// 必須チェックが異常時の場合のテストを検証する。
-        /// テストケースは以下の2ケースを検証する。
+        /// テストケースは以下のケースを検証する。
         /// ①値がNULLの場合
         /// ②値が空文字の場合
         /// </remarks>
-        /// <param name="checkTargetValue"></param>
+        /// <param name="checkTargetValue">チェック対象の値</param>
         [TestCase(null)]
         [TestCase("")]
         public void IsNecessarilyInputAbnormalTest(string checkTargetValue)
         {
             // 検証実施
             var actualResult = CheckUtility.IsNecessarilyInput(checkTargetValue);
+
+            // 検証結果
+            Assert.IsFalse(actualResult);
+        }
+
+        /// <summary>
+        /// 数値チェック正常時テスト
+        /// </summary>
+        /// <remarks>
+        /// 数値チェックが正常時の場合のテストを検証する。
+        /// </remarks>
+        /// <param name="checkTargetValue">チェック対象の値</param>
+        [TestCase("0")]
+        [TestCase("0.123456789")]
+        [TestCase("123456789")]
+        public void IsValidNumberNormalTest(string checkTargetValue)
+        {
+            // 検証実施
+            var actualResult = CheckUtility.IsValidNumber(checkTargetValue);
+
+            // 検証結果
+            Assert.IsTrue(actualResult);
+        }
+
+        /// <summary>
+        /// 数値チェック異常時テスト
+        /// </summary>
+        /// <remarks>
+        /// 数値チェックが異常時の場合のテストを検証する。
+        /// テストケースは以下のケースを実施する。
+        /// ①値がNULLの場合
+        /// ②値が空文字の場合
+        /// ③値が文字の場合
+        /// ④値が空白の場合
+        /// </remarks>
+        /// <param name="checkTargetValue">チェック対象の値</param>
+        [TestCase(null)]
+        [TestCase("")]
+        [TestCase("abc")]
+        [TestCase(" ")]
+        public void IsValidNumberAbnormalTest(string checkTargetValue)
+        {
+            // 検証実施
+            var actualResult = CheckUtility.IsValidNumber(checkTargetValue);
 
             // 検証結果
             Assert.IsFalse(actualResult);

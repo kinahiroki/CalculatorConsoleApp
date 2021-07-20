@@ -34,8 +34,10 @@
         /// <remarks>
         /// 入力した値が有効な式かどうか検証
         /// </remarks>
-        /// <param name="chackTargetValue">チェック対象の値</param>
+        /// <param name="validNumber1">有効な数値1</param>
+        /// <param name="validNumber2">有効な数値2</param>
+        /// <param name="validOperator">有効な演算子</param>
         /// <returns>有効な値の場合はtrue、無効な値の場合はfalse</returns>
-        bool IsValidFormula(string chackTargetValue);
+        bool IsValidFormula(string validNumber1, string validNumber2, string validOperator);
     }
 }
