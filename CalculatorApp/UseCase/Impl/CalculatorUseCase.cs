@@ -1,7 +1,5 @@
 ﻿using CalculatorApp.Logic;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CalculatorApp.UseCase
 {
@@ -46,28 +44,13 @@ namespace CalculatorApp.UseCase
         public void PerformCalculation()
         {
             Console.WriteLine("1つ目の数を入力してください。");
-            string validInputNumber1;
-            do
-            {
-                validInputNumber1 = Console.ReadLine();
-
-            } while (!_inputValueCheckForCalculationLogic.IsValidInputValueNumberForCalculation(validInputNumber1));
+            string validInputNumber1 = RecieveValidNumberForCalculation();
 
             Console.WriteLine("2つ目の数を入力してください。");
-            string validInputNumber2;
-            do
-            {
-                validInputNumber2 = Console.ReadLine();
-
-            } while (!_inputValueCheckForCalculationLogic.IsValidInputValueNumberForCalculation(validInputNumber2));
+            string validInputNumber2 = RecieveValidNumberForCalculation();
 
             Console.WriteLine("演算子(+, -, *, /)を入力してください。");
-            string validInputOperator;
-            do
-            {
-                validInputOperator = Console.ReadLine();
-
-            } while (!_inputValueCheckForCalculationLogic.IsValidInputValueOperator(validInputOperator));
+            string validInputOperator = RecieveValidOperator();
 
             // 入力値から計算式を生成
             if (!_inputValueCheckForCalculationLogic.IsValidFormula(validInputNumber1, validInputNumber2, validInputOperator))
@@ -82,6 +65,50 @@ namespace CalculatorApp.UseCase
             // 計算結果の出力
             Console.WriteLine(calculationResult);
             Console.Read();
+        }
+
+        /// <summary>
+        /// 計算用の有効な数値受け取り
+        /// </summary>
+        /// <remarks>
+        /// コンソールに入力された値を受け取り、その値が計算で有効な値かどうか検証する。
+        /// 有効な数値の場合は値を呼びもとに返す。有効でない数値の場合、ユーザに再度入力依頼を行う。
+        /// ただし、アプリ終了を支持する文字列が入力された場合は、ただちに処理を終了する。
+        /// </remarks>
+        /// <returns>有効な計算用の数値とアプリ終了フラグ</returns>
+        private string RecieveValidNumberForCalculation()
+        {
+            string validInputValue;
+            do
+            {
+                // 入力値の受け取り
+                validInputValue = Console.ReadLine();
+
+            } while (!_inputValueCheckForCalculationLogic.IsValidInputValueNumberForCalculation(validInputValue));
+
+            return validInputValue;
+        }
+
+        /// <summary>
+        /// 有効な演算子の受け取り
+        /// </summary>
+        /// <remarks>
+        /// コンソールに入力された値を受け取り、その値が有効な演算子かどうか検証する。
+        /// 有効な演算子の場合は値を呼びもとに返す。
+        /// ただし、有効でない演算子の場合、ユーザに再度入力依頼を行う。
+        /// </remarks>
+        /// <returns>有効な演算子</returns>
+        private string RecieveValidOperator()
+        {
+            string validInputValue;
+            do
+            {
+                // 入力値の受け取り
+                validInputValue = Console.ReadLine();
+
+            } while (!_inputValueCheckForCalculationLogic.IsValidInputValueOperator(validInputValue));
+
+            return validInputValue;
         }
     }
 }

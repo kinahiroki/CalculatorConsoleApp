@@ -78,18 +78,12 @@ namespace CalculatorApp.Common.Utility
         /// </remarks>
         /// <param name="checkTargetValue">チェック対象の値</param>
         /// <returns>処理終了の文字列以外の場合はtrue、処理終了の文字列の場合はfalse</returns>
-        public static bool IsContinue(string checkTargetValue)
+        public static bool IsEndApplication(string checkTargetValue)
         {
-            // 処理終了キーワード
-            const string PROCESS_END_KEYWORD = "end";
+            // アプリ終了キーワード
+            const string APPLICATION_END_KEYWORD = "END";
 
-            if (PROCESS_END_KEYWORD == checkTargetValue)
-            {
-                // 処理終了の文字列の場合
-                return false;
-            }
-
-            return true;
+            return APPLICATION_END_KEYWORD == checkTargetValue;
         }
     }
 }
