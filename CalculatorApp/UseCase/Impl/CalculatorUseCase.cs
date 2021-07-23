@@ -64,7 +64,7 @@ namespace CalculatorApp.UseCase
 
             // 計算結果の出力
             Console.WriteLine(calculationResult);
-            Console.Read();
+            _ = Console.Read();
         }
 
         /// <summary>
